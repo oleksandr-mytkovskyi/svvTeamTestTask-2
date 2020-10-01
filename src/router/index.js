@@ -1,11 +1,17 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import Home from '../views/Home.vue'
+import CreateTask from '../views/CreateTask.vue'
 
 const routes = [
   {
     path: '/',
     name: 'Home',
     component: Home
+  },
+  {
+    path: '/create-task',
+    name: 'create',
+    component: CreateTask
   },
   {
     path: '/about',

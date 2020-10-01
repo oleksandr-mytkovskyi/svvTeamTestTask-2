@@ -1,10 +1,27 @@
 <template>
   <div id="nav">
     <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+    <router-link to="/about">About</router-link> |
+    <router-link to="/create-task">Create</router-link>
+    <h1>Todo app</h1>
+
+    <!-- <TodoList
+    v-bind:todos='todos'
+    @remove-todo="removeTodo"
+    /> -->
   </div>
   <router-view/>
 </template>
+
+<script>
+
+
+
+export default {
+ 
+}
+</script>
+
 
 <style>
 #app {

@@ -1,18 +1,48 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+
+<!-- <TodoList
+    v-bind:todos='todos'
+    @remove-todo="removeTodo"
+    
+    /> -->
+    <ul v-for="task in allTasks" :key="task.id">
+      <li>{{task.title}}</li>
+    </ul>
+
+
+
   </div>
+  
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
+// import TodoList from '@/components/TodoList'
+
+// export default {
+//   name: 'Home',
+//   components: {
+//   }
+// }
+import {mapGetters} from 'vuex'
+import TodoList from '@/components/TodoList'
 export default {
-  name: 'Home',
+  name: 'app',
+  computed: mapGetters(["allTasks"]),
+  mounted() {
+    this.$store.dispatch('getLocalData');
+  },
+  methods:{
+    removeTodo(id) {
+      this.todos = this.todos.filter(t => t.id !== id)
+    },
+    getTodos() {
+      
+    }
+  },
   components: {
-    HelloWorld
+    TodoList
   }
 }
 </script>
